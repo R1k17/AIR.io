@@ -8,7 +8,7 @@ City Selection:
 ![city selection](images/ScreenShot_CitySelection.png)
 
 Displaying the air quality index for disabled users:
-![universal access](images/ScreenShot_UniversalAccess.png)
+![universal access](images/ScreenShot_UniversalAcces.png)
 
 Displaying the air quality index on map:
 ![map output](images/ScreenShot_Map.png)
