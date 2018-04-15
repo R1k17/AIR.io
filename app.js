@@ -9,7 +9,6 @@ let lng = 0;
 let lat = 0;
 let tooltip = false;
 
-// http://api.airvisual.com/v2/city?city=Hamburg&state=Hamburg&country=Germany&key=
 const AIR_VISUAL_API = 'https://api.airvisual.com/v2/';
 const API_KEY = 'jAFKiAYnvLwL5HYjJ';
 const AIR_DATA = 'https://api.airvisual.com/v2/city';
@@ -84,11 +83,9 @@ function getCountriesFromAPI() {
         dataType: 'JSON',
         url: AIR_VISUAL_API + `countries?key=${API_KEY}`,
         success: (data) => {
-            console.log(data);
             let list = data.data.map(obj => {
                 return obj.country;
             });
-            console.log(list);
             countryListCreator(list);
         },
         error: () => console.log('GET states failed')
@@ -116,11 +113,9 @@ function getCitiesFromAPI() {
         dataType: 'JSON',
         url: AIR_VISUAL_API + `cities?state=${state}&country=${country}&key=${API_KEY}`,
         success: (data) => {
-            console.log(data);
             let list = data.data.map(obj => {
                 return obj.city;
             });
-            console.log(list);
             cityListCreator(list);
         },
         error: () => console.log('GET cities failed')
@@ -164,7 +159,6 @@ function countrySelectHandler() {
 }
 
 function countryUpdate(currentCountry = country){
-    console.log(currentCountry);
     $('select[id="stateList"]').text('');
     $('select[id="cityList"]').text('');
     if (typeof currentCountry !== "string") {
@@ -189,7 +183,6 @@ function stateListCreator(data = states){
 }
 
 function stateListMenuCreator() {
-    console.log('states: ' + states);
     let result = states.map(function(state) {
         return renderStateOption(state);
     })
@@ -258,25 +251,15 @@ function displaySelectedCity() {
     $('#cityList').val(city);
 }
 
-// function renderResult(result){
-//     return `<p>${result}</p>`;
-// }
-
 /* Air quality functionality */
 function displaySearchData(data) {
     aqi = data.data.current.pollution.aqius;
-    // let result = renderResult(aqi);
-    // $('#results').html(result);
     lng = data.data.location.coordinates[0];
     lat = data.data.location.coordinates[1];
-    console.log(lng);
-    console.log(lat);
-    // pollutionChecker(aqi);
     initMap();
 }
 
-/* if the aqi reaches a certain value the condition is deciding wich color to display! */
-
+/* difining different colors based on aqi */
 function pollutionChecker(){
     switch (true) {
         case (aqi <= 25):
@@ -300,7 +283,6 @@ function pollutionChecker(){
     }
 }
 
-
 function toggleHelp(){
     let currentState = true;
 
@@ -309,13 +291,13 @@ function toggleHelp(){
             // target the helpText div and then populate it with the p
             $('#helpText').html(`<p>The selected city ${city} has a current air quality index of ${aqi}.</p>`);
             // change the class of helpBtn
-            $('#helpBtn > #universalIcon').toggleClass('red', 'fa-universal-access');
+            $('#helpBtn > #universalIcon').toggleClass('btnClicked', 'fa-universal-access');
             currentState = false;
         } else {
             // depopulating the div
             $('#helpText').html('');
             // change the class back again
-            $('#helpBtn > #universalIcon').toggleClass('red', 'fa-universal-access');
+            $('#helpBtn > #universalIcon').toggleClass('btnClicked', 'fa-universal-access');
             currentState = true;
         }
     })
@@ -327,23 +309,24 @@ function toggleAqiInfo(){
     $('#aqiList').on('click', function(){
         if(currentState){
             // target the agiInfo div and then populate it with the ul
-            $('#aqiInfo').html('<ul>' +
-                                    '<li>0 - 25     : excelent air</li>' +
-                                    '<li>25 - 50    : good air</li>' +
-                                    '<li>50 - 75    : moderate air</li>' +
-                                    '<li>75 - 100   : lightly polluted air</li>' +
-                                    '<li>100 - 125  : moderately polluted air</li>' +
-                                    '<li>125 <      : highly polluted air</li>' +
-                                '</ul>'
+            $('#aqiInfo').html('<table>' +
+                                    '<tr>'+'<th>Range</th><th>Air Pollution</th></tr>'+
+                                    '<tr>'+'<td>0 - 25:</td><td>excelent air</td></tr>'+
+                                    '<tr>'+'<td>25 - 50</td><td>good air</td></tr>'+
+                                    '<tr>'+'<td>50 - 75</td><td>moderate air</td></tr>'+
+                                    '<tr>'+'<td>75 - 100</td><td>lightly polluted air</td></tr>'+
+                                    '<tr>'+'<td>100 - 125</td><td>moderately polluted air</td></tr>'+
+                                    '<tr>'+'<td>125 <</td><td>highly polluted air</td></tr>'+
+                                '</table>'
                                 );
             // change the class of aqiListBtn
-            $('#aqiList > #listIcon').toggleClass('red', 'fa-list-ul');
+            $('#aqiList > #listIcon').toggleClass('btnClicked', 'fa-list-ul');
             currentState = false;
         } else {
             // depopulating the div
             $('#aqiInfo').html('');
             // change the class back again
-            $('#aqiList > #listIcon').toggleClass('red', 'fa-list-ul');
+            $('#aqiList > #listIcon').toggleClass('btnClicked', 'fa-list-ul');
             currentState = true;
         }
     })
