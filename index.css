@@ -191,3 +191,8 @@ label {
 fieldset {
     border: none;
 }
+
+header > img {
+    width: 210px;
+    height: 148px;
+}
