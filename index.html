@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="This app displays the air quality index of a chosen city.">
+        <meta keywords="air, quality, index, good life, breathe">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+        <title>AIR - a place to breathe</title>
+    </head>
+    <body class="boxShadow">
+        <header role='banner' class="header-footer">
+            <img src="https://R1k17.apiCapstone.io/images/AIRLogo.png" alt='"AIR - a place to breathe" logo'>
+            <nav role="navigation" class="navbar nav-border">
+                <ul>
+                    <li>
+                        <a href="#helpText" aria-label="Help button" id="helpBtn" class="navBtn" alt="Button to display the current api index"><i id="universalIcon" class="fas fa-universal-access"></i></a>
+                    </li>
+                    <li>
+                        <a href="#aqiInfo" aria-label="Air quality index information" id="aqiList" class="navBtn" alt="Button to open the air quality index classification table"><i id="#listIcon" class="fas fa-list-ul"></i></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="container" role='main'>
+                    <fieldset>
+                        <legend><h2>Get the air quality index for a chosen location</h2></legend>
+                            <form action="#" class="city-form">
+                                <label for="countryList">Country
+                                    <select name="countryList" id="countryList" alt="select a country" class='selectionLists'>
+                                    </select>
+                                </label>
+                                <label for="stateList">State
+                                    <select name="stateList" id="stateList" alt="select a state" class='selectionLists'>
+                                    </select>
+                                </label>
+                                <label for="cityList">City
+                                    <select name="cityList" id="cityList" alt="select a city" class='selectionLists'>
+                                    </select>
+                                </label>
+                            </form>
+                    </fieldset>
+                <section role="region">
+                    <div id="helpText" alt="Table to classify the air quality index"></div>
+                    <div id="aqiInfo" alt="Information about the current air quality index of the chosen city"></div>
+                </section>
+                <section role="region">
+                    <div aria-label="Google maps with current selected city and its aqi" alt="Displaying a map with the chosen city and its current air quality index." id='map'></div>
+                </section>
+        </main>
+        <footer role="contentinfo" class="header-footer">
+            <nav role="navigation" class="navbar">
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/tarik-mey" aria-label="Creators LinkedIn profile" class="navBtn" alt="LinkedIn icon"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="https://github.com/R1k17" aria-label="Creators GitHub profile" class="navBtn" alt="GitHub icon"><i class="fab fa-github"></i></a></li>
+                    <li><a href="mailto:tarik-mey@gmx.de" aria-label="Creators Email contact" class="navBtn" alt="Email icon"><i class="fas fa-envelope"></i></a></li>
+                </ul>
+            </nav>
+        </footer>
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+        <script type="text/javascript" src="app.js"></script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjHhRHlgV0PvRW_o6dvtlzbDN0Rdy_wF8&callback=initMap">
+        </script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    </body>
+</html>
