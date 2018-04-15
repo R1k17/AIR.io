@@ -23,6 +23,6 @@ Displaying the air quality index on map:
 - [Live Demo](https://r1k17.github.io/AIR.io/)
 
 ## Author
-![Tarik Mey](https://www.linkedin.com/in/tarik-mey)
+Tarik Mey
 
 
