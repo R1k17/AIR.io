@@ -5,25 +5,24 @@ AIR - a place to breathe is an air quality application. The main goal is to pres
 
 ## Screenshots
 City Selection:
-![city selection](images/ScreenShot_Selection.png)
-
-Displaying the air quality index:
-![aqi output](images/ScreenShot_Selection.png)
+![city selection](images/ScreenShot_CitySelection.png)
 
 Displaying the air quality index for disabled users:
 ![universal access](images/ScreenShot_UniversalAccess.png)
-## Environment Setup
-## Running the tests
-## Built With
 
-## Features
+Displaying the air quality index on map:
+![map output](images/ScreenShot_Map.png)
+
+## Built With
+- HTML 
+- CSS
+- JavaScript
+- jQuery
+
 ## Demo
 - [Live Demo](https://r1k17.github.io/AIR.io/)
 
-* 		The name of your app at the top of the file
-* 		A link to your live app
-* 		Screenshot(s) of your app. This makes your app description much easier to understand.
-* 		A summary section. This should have a concise explanation of what your app does. Try to frame this from the standpoint of what the user does, or what the app enables for the user.
-* 		A section on the technology used. For your capstone, this is fairly simple (HTML/CSS/JavaScript/jQuery) but it's still good to list out the key technologies.
+## Author
+![Tarik Mey](https://www.linkedin.com/in/tarik-mey)
 
 
