@@ -2,4 +2,4 @@
 Thinkful API Capstone Project
 
 Live Version
-https://r1k17.github.io/
+https://r1k17.github.io/R1k17.AIR.io/
