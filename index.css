@@ -215,10 +215,10 @@ td {
 
 /* Media query */
 @media only screen and (max-width: 400px) {
-    header>nav>ul {
-        float: left;
+    header>nav>ul {    float: left;
         width: 50px;
         line-height: 25px;
         padding-left: 20px;
+        margin: 0;
     }
 }
